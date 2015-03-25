@@ -3,7 +3,7 @@ class Link < ActiveRecord::Base
 	validates :title, length: { minimum: 3 }
   	validates :title, length: { maximum: 100 }
   	validates :url, format: { with: URI::regexp(%w(http https)),
-    message: "not valid, Url must with http/https" }
+    message: "not valid, Url must with http:// || https://" }
 	acts_as_votable
 	
 	belongs_to :user

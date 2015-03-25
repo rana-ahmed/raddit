@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get 'mylinks' => 'links#mylinks'
+
   resources :links do
     member do
       put 'like', to: 'links#upvote'

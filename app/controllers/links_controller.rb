@@ -8,6 +8,12 @@ class LinksController < ApplicationController
     @links = Link.all
   end
 
+
+  def mylinks
+    @links = current_user.links
+    render(:template => 'links/index')
+  end
+
   # GET /links/1
   # GET /links/1.json
   def show
