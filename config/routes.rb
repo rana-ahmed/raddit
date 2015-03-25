@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments, only: [ :destroy, :create]
 
   devise_for :users
 
   get 'mylinks' => 'links#mylinks'
 
+  get '*path' => redirect('404')
   resources :links do
     member do
       put 'like', to: 'links#upvote'
       put 'dislike', to: 'links#downvote'
     end
-    resources :comments
+    resources :comments, only: [ :destroy, :create]
   end
 
   root 'links#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
