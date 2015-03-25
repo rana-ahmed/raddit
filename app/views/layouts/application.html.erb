@@ -31,13 +31,17 @@
 
 	<div id="main_content" class="container">
 		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
+			<div class="alert alert-warning alert-dismissible" role="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <%= msg %>
+			</div>
 		<% end %>
 
-			<div id="content" class="col-md-9 center-block">
+
+		<div id="content" class="col-md-9 center-block">
 				<%= yield %>
 			</div>
-		</div>
 	</div>
+</div>
 </body>
 </html>
