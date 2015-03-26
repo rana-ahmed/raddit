@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get 'mylinks' => 'links#mylinks'
 
-  get '*path' => redirect('404')
   resources :links do
     member do
       put 'like', to: 'links#upvote'
@@ -15,6 +14,10 @@ Rails.application.routes.draw do
   end
 
   root 'links#index'
+
+  get '*path' => redirect('404')
+  #get '*unmatched_route', :to => 'application#raise_not_found!'
+  #get '*unmatched_route' => redirect('404')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
