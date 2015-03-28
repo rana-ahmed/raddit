@@ -1,5 +1,6 @@
 <div class="page-header">
 	<h1><a href="<%= @link.url %>"><%= @link.title %></a><br><small>Submitted by <%= @link.user.name %></small></h1>
+  <%= image_tag avatar_url(@link.user, 100, "img") %>
 </div>
 
 <div class="btn-group">

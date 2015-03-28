@@ -3,6 +3,7 @@
     <h2>
       <%= link_to link.title, link %><br>
       <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></small>
+      <%= image_tag avatar_url(link.user, 50, "img") %>
     </h2>
 
     <div class="btn-group">
