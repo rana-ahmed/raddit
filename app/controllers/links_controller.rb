@@ -35,7 +35,7 @@ class LinksController < ApplicationController
     @link = current_user.links.build(link_params)
 
     respond_to do |format|
-      if @link.save
+      if verify_recaptcha(:model => @post, :message => "Oh! It's error with reCAPTCHA!") && @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created' }
         format.json { render :show, status: :created, location: @link }
       else
